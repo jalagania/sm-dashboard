@@ -1,0 +1,336 @@
+// Color Variables
+
+:root {
+  --bg-main: #1e202a;
+  --bg-top: #1f212e;
+  --bg-card: #252a41;
+  --text-main: #8b97c6;
+  --text-secondary: #ffffff;
+  --toggle: #252a41;
+  --green: #1db489;
+  --red: #dc414c;
+  --hover-bg: #333a56;
+}
+
+.light-theme {
+  --bg-main: #ffffff;
+  --bg-top: #f5f7ff;
+  --bg-card: #f0f2fa;
+  --text-main: #63687e;
+  --text-secondary: #1e202a;
+  --toggle: #aeb3cb;
+  --hover-bg: #e1e3f0;
+}
+
+// Media Query
+
+@mixin tablet {
+  @media (max-width: 53.12em) {
+    @content;
+  }
+}
+
+@mixin phone-bg {
+  @media (max-width: 31.25em) {
+    @content;
+  }
+}
+
+@mixin phone-sm {
+  @media (max-width: 26.87em) {
+    @content;
+  }
+}
+
+// Global Styles
+
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+
+  @include tablet {
+    font-size: 58%;
+  }
+
+  @include phone-bg {
+    font-size: 55%;
+  }
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--bg-main);
+  position: relative;
+  transition: all ease-out 0.3s;
+
+  display: flex;
+  justify-content: center;
+}
+
+.top-bg {
+  height: 30vh;
+  width: 100%;
+  background-color: var(--bg-top);
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  position: absolute;
+  z-index: -1;
+}
+
+// Container
+
+.container {
+  padding: 0 2rem;
+
+  display: grid;
+  grid-template-columns: repeat(4, minmax(18rem, 23rem));
+  column-gap: 2.6rem;
+  row-gap: 1.8rem;
+
+  @include tablet {
+    grid-template-columns: repeat(2, minmax(18rem, 23rem));
+  }
+
+  @include phone-sm {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Heading
+
+h1,
+h2 {
+  color: var(--text-secondary);
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+header {
+  padding-top: 2rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  grid-column: 1 / -1;
+
+  @include phone-sm {
+    flex-direction: column;
+  }
+}
+
+.heading {
+  @include phone-sm {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--hover-bg);
+  }
+}
+
+.followers-total {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-top: 0.5rem;
+}
+
+.mode-box {
+  display: flex;
+  gap: 1.3rem;
+  align-items: center;
+
+  @include phone-sm {
+    margin-top: 1.5rem;
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+.mode-text {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+
+  @include phone-sm {
+    font-size: 1.5rem;
+  }
+}
+
+.mode-switcher {
+  width: 4.2rem;
+  height: 2rem;
+  border-radius: 5rem;
+  background: linear-gradient(to right, #378fe6, #3eda82);
+  position: relative;
+  cursor: pointer;
+}
+
+.circle {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  transform: translateY(-50%);
+  background-color: var(--bg-top);
+  transition: all 0.3s;
+}
+
+// Followers Boxes
+
+.box-bg,
+.box-sm {
+  background-color: var(--bg-card);
+  border-radius: 5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: var(--hover-bg);
+  }
+}
+
+.box-bg {
+  text-align: center;
+  padding-top: 2.8rem;
+}
+
+.user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-name {
+  font-size: 1.3rem;
+  display: inline-block;
+  color: var(--text-main);
+}
+
+.followers-number {
+  font-size: 4.5rem;
+  color: var(--text-secondary);
+  margin-top: 2rem;
+}
+
+.followers-text {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--text-main);
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.day {
+  font-size: 1.2rem;
+  color: var(--green);
+  display: inline-block;
+  margin: 2rem 0;
+}
+
+.fb-box {
+  border-top: 3px solid #198ff5;
+}
+
+.tw-box {
+  border-top: 3px solid #1ca0f2;
+}
+
+.insta-box {
+  background: linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+    linear-gradient(to right, #fdc468, #df4996) border-box;
+  border-top: 3px solid transparent;
+  transition: all 0.3s;
+
+  &:hover {
+    background: linear-gradient(var(--hover-bg), var(--hover-bg)) padding-box,
+      linear-gradient(to right, #fdc468, #df4996) border-box;
+  }
+}
+
+.yt-box {
+  border-top: 3px solid #c4032a;
+}
+
+.overview {
+  margin-top: 2rem;
+  grid-column: 1/ -1;
+}
+
+// Small Boxes
+
+.box-sm {
+  padding: 2rem;
+
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: space-between;
+  row-gap: 1.5rem;
+
+  .icon {
+    justify-self: end;
+  }
+}
+
+.views-text {
+  font-size: 1.2rem;
+  color: var(--text-main);
+  align-self: center;
+}
+
+.views-number {
+  font-size: 2.5rem;
+  color: var(--text-secondary);
+}
+
+.percentage-text {
+  font-size: 1.1rem;
+  color: var(--green);
+}
+
+.red-text {
+  color: var(--red);
+}
+
+// Attribution
+
+.attribution {
+  font-size: 1.5rem;
+  color: var(--red);
+  margin-top: 1rem;
+
+  grid-column: 1 / -1;
+  justify-self: center;
+
+  a:link,
+  a:visited {
+    color: var(--green);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
