@@ -1,0 +1,172 @@
+.account-box {
+  width: 24rem;
+  height: 21rem;
+  display: block;
+  font-weight: 700;
+  text-align: center;
+  cursor: grab;
+  position: relative;
+  perspective: 300rem;
+  -moz-perspective: 500rem;
+  flex-grow: 1;
+}
+
+.account-box__front,
+.account-box__back {
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-card);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+  transition: transform 1s ease;
+}
+
+.account-box__front {
+  padding-top: 2.8rem;
+}
+
+.dragged-account {
+  cursor: grabbing;
+}
+
+.dragged-account .account-box__front {
+  background-color: var(--dragged) !important;
+}
+
+.account-box__back {
+  transform: rotateY(180deg);
+}
+
+.account-box.flip .account-box__front {
+  transform: rotateY(-180deg);
+}
+
+.account-box.flip .account-box__back {
+  transform: rotateY(0);
+}
+
+.account-box__user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.account-box__user .username {
+  font-size: 1.3rem;
+  display: inline-block;
+  color: var(--text-main);
+}
+
+.account-box__followers {
+  font-size: 4.5rem;
+  color: var(--text-secondary);
+  margin-top: 2rem;
+}
+
+.account-box__title {
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+  color: var(--text-main);
+  margin-top: 0.8rem;
+}
+
+.account-box__stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.account-box__stats .today-text {
+  font-size: 1.2rem;
+  color: var(--green);
+  display: inline-block;
+  margin: 2rem 0;
+}
+
+.account-box__stats .today-text.down {
+  color: var(--red);
+}
+
+.account-box__back {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.account-box__avatar {
+  width: 9rem;
+  height: 9rem;
+  object-fit: cover;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.account-box__fullname {
+  font-size: 1.4rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-main);
+  margin-top: 0.8rem;
+}
+
+.account-box__sm-logo {
+  width: 3.5rem;
+}
+
+.facebook-box::before,
+.twitter-box::before,
+.instagram-box::before,
+.youtube-box::before {
+  content: "";
+  width: 100%;
+  height: 3.5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.facebook-box::before {
+  background-color: var(--facebook);
+}
+
+.twitter-box::before {
+  background-color: var(--twitter);
+}
+
+.instagram-box::before {
+  background: var(--instagram);
+}
+
+.youtube-box::before {
+  background-color: var(--youtube);
+}
+
+@media (hover: hover) {
+  .account-box:hover .account-box__front,
+  .account-box:hover .account-box__back {
+    background-color: var(--hover-bg);
+  }
+}
+
+@media (max-width: 1094px) {
+  .account-box {
+    flex-grow: 0;
+  }
+}
+
+@media (max-width: 570px) {
+  .account-box {
+    width: 100%;
+  }
+}

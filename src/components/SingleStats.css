@@ -1,0 +1,67 @@
+.stats-box {
+  width: 24rem;
+  height: 11rem;
+  padding: 2.4rem;
+  background-color: var(--bg-card);
+  border-radius: 0.5rem;
+  font-weight: 700;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: space-between;
+  row-gap: 1.5rem;
+  flex-grow: 1;
+  cursor: grab;
+}
+
+.stats-box.draggable {
+  background-color: var(--draggable);
+}
+
+.stats-box .sm-icon {
+  justify-self: end;
+}
+
+.stats-box__title {
+  font-size: 1.2rem;
+  color: var(--text-main);
+  align-self: center;
+}
+
+.stats-box__amount {
+  font-size: 2.5rem;
+  color: var(--text-secondary);
+}
+
+.stats-box__stats {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: end;
+}
+
+.percent-text {
+  font-size: 1.1rem;
+  color: var(--green);
+}
+
+.percent-text.down {
+  color: var(--red);
+}
+
+@media (hover: hover) {
+  .stats-box:hover {
+    background-color: var(--hover-bg);
+  }
+}
+
+@media (max-width: 1094px) {
+  .stats-box {
+    flex-grow: 0;
+  }
+}
+
+@media (max-width: 570px) {
+  .stats-box {
+    width: 100%;
+  }
+}
