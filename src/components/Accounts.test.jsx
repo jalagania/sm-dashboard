@@ -32,4 +32,11 @@ describe("testing Accounts component", () => {
     const today = screen.getAllByText(/today/i).length;
     expect(today).toBe(4);
   });
+
+  it("should render images with correct alt and src", () => {
+    render(<Accounts />);
+    const images = screen.getAllByAltText(/user avatar/i);
+    expect(images.length).toBe(4);
+    expect(images[0].src).toContain("/images/avatar");
+  });
 });

@@ -2,7 +2,7 @@
 
 1. Flipping Cards
 
-Account cards flip on click. Back side of the card contains avatar, full name of the user and a social account logo
+Account cards flip on click. Back side of the card contains avatar, full name of the user and a social account logo.
 
 2. Drag & Drop Cards
 
@@ -10,4 +10,4 @@ All cards can be dragged and dropped. Initially I used "React Beautiful DnD" lib
 
 3. LocalStorage
 
-Evey change made by user is stored in localStorage and thus persists on refresh.
+Every change made by user is stored in localStorage and thus persists on refresh.

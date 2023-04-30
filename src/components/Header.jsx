@@ -3,8 +3,8 @@ import "./Header.css";
 
 function Header() {
   const DARKMODE =
-    JSON.parse(localStorage.getItem("darkMode")) !== null
-      ? JSON.parse(localStorage.getItem("darkMode"))
+    JSON.parse(localStorage.getItem("DARKMODE")) !== null
+      ? JSON.parse(localStorage.getItem("DARKMODE"))
       : window.matchMedia("(prefers-color-scheme: dark)").matches;
   const [darkMode, setDarkMode] = useState(DARKMODE);
 
@@ -15,7 +15,7 @@ function Header() {
   }
 
   useEffect(() => {
-    localStorage.setItem("darkMode", JSON.stringify(darkMode));
+    localStorage.setItem("DARKMODE", JSON.stringify(darkMode));
   }, [darkMode]);
 
   return (

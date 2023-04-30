@@ -7,7 +7,7 @@
   cursor: grab;
   position: relative;
   perspective: 300rem;
-  -moz-perspective: 500rem;
+  -moz-perspective: 300rem;
   flex-grow: 1;
 }
 

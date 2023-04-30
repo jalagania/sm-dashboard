@@ -11,4 +11,10 @@
   .overview-section {
     margin-top: 2.8rem;
   }
+
+  @-moz-document url-prefix() {
+    .stats-container {
+      padding: 1.6rem 0;
+    }
+  }
 }
